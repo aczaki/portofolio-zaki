@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio - Full Stack Developer",
+  title: "Achmad Zaki Ramadani - Full Stack Developer Portfolio",
   description: "Portfolio website of a Full Stack Developer showcasing projects, skills, and experience. Open for freelance projects and collaboration.",
   keywords: ["developer", "portfolio", "full stack", "web developer", "next.js"],
-  authors: [{ name: "Your Name" }],
+  authors: [{ name: "Achmad Zaki Ramadani" }],
   openGraph: {
-    title: "Portfolio - Full Stack Developer",
+    title: "Achmad Zaki Ramadani - Full Stack Developer Portfolio",
     description: "Full Stack Developer portfolio with projects and skills",
     type: "website",
   },
@@ -34,6 +34,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <meta name="google-site-verification" content="emZqHluxGZgqYkxQKx0yjsEO0feq0GTYSGP2n7BqUrY" />
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
