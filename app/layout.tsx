@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Achmad Zaki Ramadani - Full Stack Developer Portfolio",
     description: "Full Stack Developer portfolio with projects and skills",
+    url: "https://achmadzaki.vercel.app",
+    siteName: "Achmad Zaki Ramadani",
+    locale: "id_ID",
     type: "website",
   },
 };
