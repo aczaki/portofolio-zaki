@@ -1,10 +1,32 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['hero', 'about', 'skills', 'projects', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { name: 'Beranda', href: '#hero' },
@@ -15,26 +37,32 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-cyan-500/30 bg-slate-950/80">
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-200/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <a href="#" className="text-2xl font-bold gradient-text">
-              Achmad Zaki. 
+          <div className="shrink-0">
+            <a 
+              href="#hero" 
+              className="text-xl font-bold bg-linear-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+            >
+              Achmad Zaki.
             </a>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative group"
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                  activeSection === link.href.slice(1)
+                    ? 'text-purple-600 bg-purple-50'
+                    : 'text-gray-600 hover:text-purple-600 hover:bg-purple-50/50'
+                }`}
               >
                 {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-300"></span>
               </a>
             ))}
           </nav>
@@ -43,7 +71,8 @@ export default function Header() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-cyan-400 hover:text-cyan-300 transition-colors"
+              className="text-gray-600 hover:text-purple-600 transition-colors p-2"
+              aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -52,12 +81,16 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <nav className="md:hidden pb-4 animate-in fade-in">
+          <nav className="md:hidden pb-4 space-y-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="block py-2 px-4 text-gray-300 hover:text-cyan-400 hover:bg-slate-900/50 rounded transition-colors"
+                className={`block px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                  activeSection === link.href.slice(1)
+                    ? 'text-purple-600 bg-purple-50'
+                    : 'text-gray-600 hover:text-purple-600 hover:bg-purple-50/50'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}

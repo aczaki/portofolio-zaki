@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  /* Dark Cyberpunk Theme */
-  --background: #0a0e27;
-  --foreground: #e0e0e0;
-  --primary: #00d9ff;
-  --secondary: #0066ff;
-  --accent: #ff00ff;
-  --card-bg: #1a1f3a;
-  --border-color: #00d9ff;
+  /* Lilac Minimalist Theme */
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --primary: #8b5cf6;
+  --secondary: #c4b5fd;
+  --accent: #e5e7eb;
+  --card-bg: #f8fafc;
+  --border-color: #e5e7eb;
 }
 
 @theme inline {
@@ -26,8 +26,7 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1433 100%);
-  background-attachment: fixed;
+  background: #ffffff;
   color: var(--foreground);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
@@ -41,62 +40,55 @@ a {
 /* Selection color */
 ::selection {
   background-color: var(--primary);
-  color: #000;
+  color: #ffffff;
 }
 
-/* Custom scrollbar - Cyberpunk style */
+/* Custom scrollbar - Clean style */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(10, 14, 39, 0.5);
+  background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+  background: #cbd5e1;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
-  box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+  background: #94a3b8;
 }
 
-/* Glow effect for headings */
-h1, h2, h3, h4, h5, h6 {
-  text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
-  color: var(--foreground);
-}
-
-/* Neon border style */
+/* Minimal border style */
 .neon-border {
-  border: 1px solid var(--primary);
-  box-shadow: 0 0 10px rgba(0, 217, 255, 0.3), inset 0 0 10px rgba(0, 217, 255, 0.1);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .neon-border:hover {
-  box-shadow: 0 0 20px rgba(0, 217, 255, 0.6), inset 0 0 10px rgba(0, 217, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
+  border-color: var(--primary);
 }
 
-/* Gradient text */
+/* Gradient text - Lilac */
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glow button */
+/* Modern button */
 .glow-button {
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.25);
   transition: all 0.3s ease;
 }
 
 .glow-button:hover {
-  box-shadow: 0 0 30px rgba(0, 217, 255, 0.8), 0 0 50px rgba(0, 217, 255, 0.6);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.35);
   transform: translateY(-2px);
 }
 

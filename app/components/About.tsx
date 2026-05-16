@@ -2,53 +2,82 @@
 
 import Image from 'next/image';
 import { User, CheckCircle2, GraduationCap, Briefcase } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function About() {
-  // Ganti URL ini dengan link foto profil Anda
-  const profileImage = '/images/profile.jpg'; // Atau gunakan URL web: 'https://example.com/photo.jpg'
+  const profileImage = '/images/profile.jpg';
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
+  };
 
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
+    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50/50">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">
-          <span className="gradient-text">Tentang Saya</span>
-        </h2>
+        <motion.h2 
+          className="text-4xl md:text-5xl font-bold mb-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="bg-linear-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">
+            Tentang Saya
+          </span>
+        </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-8 items-start">
-          {/* Left Side - Image Placeholder */}
-          <div className="relative">
-            <div className="neon-border rounded-lg p-1">
-              <div className="bg-linear-to-br from-cyan-500/20 to-blue-500/20 rounded-lg aspect-square flex items-center justify-center overflow-hidden">
-                {profileImage ? (
-                  <Image
-                    src={profileImage}
-                    alt="Foto Profil"
-                    width={400}
-                    height={400}
-                    className="w-full h-full object-cover"
-                    priority
-                  />
-                ) : (
-                  <div className="text-center">
-                    <User size={128} className="text-cyan-400 mx-auto opacity-50" />
-                    <p className="text-gray-500 mt-4">Foto Profil</p>
-                  </div>
-                )}
-              </div>
+        <motion.div 
+          className="grid md:grid-cols-3 gap-8 items-start"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {/* Left Side - Image */}
+          <motion.div variants={itemVariants} className="relative group">
+            <div className="relative rounded-xl overflow-hidden shadow-lg border border-gray-200 group-hover:shadow-xl transition-shadow duration-300">
+              {profileImage ? (
+                <Image
+                  src={profileImage}
+                  alt="Foto Profil"
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              ) : (
+                <div className="bg-linear-to-br from-purple-100 to-purple-50 w-full aspect-square flex items-center justify-center">
+                  <User size={128} className="text-purple-300" />
+                </div>
+              )}
+              <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            {/* Decorative Element */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-cyan-400/30 rounded-lg"></div>
-            <div className="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-magenta-500/30 rounded-lg"></div>
-          </div>
+          </motion.div>
 
           {/* Middle - Content */}
-          <div className="space-y-6">
-            <p className="text-gray-300 text-lg leading-relaxed">
-              Saya adalah seorang <span className="text-cyan-400 font-semibold">Full Stack Developer</span> yang passionate
+          <motion.div variants={itemVariants} className="space-y-6">
+            <p className="text-gray-700 text-lg leading-relaxed">
+              Saya adalah seorang <span className="text-purple-600 font-semibold">Full Stack Developer</span> yang passionate
               tentang menciptakan solusi web yang inovatif dan user-centric.
             </p>
 
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-gray-700 text-lg leading-relaxed">
               Saya percaya bahwa teknologi yang baik harus meningkatkan kehidupan pengguna. Oleh karena itu, saya
               selalu fokus pada:
             </p>
@@ -61,62 +90,60 @@ export default function About() {
                 'Belajar teknologi terbaru dan best practices',
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3">
-                  <CheckCircle2 size={24} className="text-cyan-400 mt-0 shrink-0" />
-                  <span className="text-gray-300">{item}</span>
+                  <CheckCircle2 size={20} className="text-purple-600 mt-1 shrink-0 flex-none" />
+                  <span className="text-gray-700">{item}</span>
                 </li>
               ))}
             </ul>
 
             <div className="flex gap-4 pt-6">
-              <a href="#contact" className="glow-button px-6 py-2 rounded-lg font-semibold text-white">
+              <a 
+                href="#contact" 
+                className="px-6 py-2 bg-linear-to-r from-purple-600 to-purple-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              >
                 Hubungi Saya
               </a>
-              <a href="#projects" className="px-6 py-2 rounded-lg font-semibold text-cyan-400 border border-cyan-400 hover:bg-cyan-400/10 transition-all">
+              <a 
+                href="#projects" 
+                className="px-6 py-2 border-2 border-gray-300 text-gray-900 rounded-lg font-semibold hover:border-purple-300 hover:bg-purple-50/50 transition-all duration-300"
+              >
                 Lihat Proyek
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Side - Education & Experience */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold text-cyan-400 mb-4">Pendidikan</h3>
+          <motion.div variants={itemVariants} className="space-y-4">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Pendidikan</h3>
 
-            {[
-              {
-                icon: GraduationCap,
-                title: 'Sarjana Informatika',
-                subtitle: 'Universitas Muhammadiyah Surakarta',
-                period: '2022 - 2026',
-                ipk: '3.54 / 4.00',
-              },
-              
-            ].map((item, idx) => {
-              const IconComponent = item.icon;
-              return (
-                <div key={idx} className="neon-border rounded-lg p-1">
-                  <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex items-start gap-3 flex-1">
-                        <IconComponent className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
-                        <div className="flex-1 min-w-0">
-                          <h4 className="text-sm font-bold text-cyan-300">{item.title}</h4>
-                          <p className="text-gray-400 text-xs">{item.subtitle}</p>
-                          <p className="text-gray-500 text-xs mt-1">{item.period}</p>
-                        </div>
-                      </div>
-                      {item.ipk && (
-                        <div className="flex flex-col items-center gap-1 pl-2 border-l border-cyan-400/30">
-                          <p className="text-xs text-gray-400">IPK</p>
-                          <p className="text-sm font-bold text-cyan-400">{item.ipk}</p>
-                        </div>
-                      )}
-                    </div>
+            <div className="bg-white rounded-lg p-4 border border-gray-200 hover:border-purple-300 hover:shadow-lg transition-all duration-300">
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex items-start gap-3 flex-1">
+                  <GraduationCap className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900 text-sm">Sarjana Informatika</h4>
+                    <p className="text-xs text-gray-600 mt-1">Universitas Muhammadiyah Surakarta</p>
+                    <p className="text-xs text-purple-600 font-medium mt-2">2022 - 2026 • IPK: 3.54/4.00</p>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4 mt-6">Tech Stack</h3>
+              <div className="flex flex-wrap gap-2">
+                {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Laravel', 'MySQL', 'MongoDB'].map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 bg-purple-50 border border-purple-200 rounded-full text-xs font-medium text-purple-700 hover:bg-purple-100 transition-colors duration-300"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

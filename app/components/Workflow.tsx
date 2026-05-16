@@ -1,6 +1,7 @@
 'use client';
 
-import { Search, Palette, Code, CheckCircle2, Rocket, Wrench, Sparkles, Users, Trophy } from 'lucide-react';
+import { Search, Palette, Code, CheckCircle2, Rocket, Wrench } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Workflow() {
   const steps = [
@@ -42,72 +43,88 @@ export default function Workflow() {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const stepVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6 },
+    },
+  };
+
   return (
-    <section id="workflow" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="workflow" className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50/50">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-          <span className="gradient-text">Workflow & Process</span>
-        </h2>
-        <p className="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
+        <motion.h2 
+          className="text-4xl md:text-5xl font-bold mb-4 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="bg-linear-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">
+            Workflow & Process
+          </span>
+        </motion.h2>
+        
+        <motion.p 
+          className="text-center text-gray-600 mb-16 max-w-2xl mx-auto text-lg"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           Berikut adalah proses yang saya ikuti untuk memastikan project Anda berjalan dengan sukses.
-        </p>
+        </motion.p>
 
-        <div className="space-y-8">
-          {steps.map((step, idx) => (
-            <div key={idx} className="relative group">
-              {/* Connecting Line */}
-              {idx < steps.length - 1 && (
-                <div className="absolute left-8 top-24 w-1 h-12 bg-gradient-to-b from-cyan-400 to-transparent opacity-50"></div>
-              )}
+        <motion.div 
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {steps.map((step, idx) => {
+            const IconComponent = step.icon;
+            return (
+              <motion.div
+                key={idx}
+                variants={stepVariants}
+                whileHover={{ translateY: -4 }}
+                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:border-purple-300 transition-all duration-300 group"
+              >
+                {/* Step Number Badge */}
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-purple-600 to-purple-500 text-white font-bold text-lg mb-4">
+                  {step.number}
+                </div>
 
-              <div className="flex gap-6">
-                {/* Step Number */}
-                <div className="flex-shrink-0">
-                  <div className="relative w-16 h-16 rounded-lg group-hover:shadow-2xl transition-all group-hover:shadow-cyan-500/50">
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg opacity-20"></div>
-                    <div className="relative h-full flex items-center justify-center border border-cyan-400/50 rounded-lg group-hover:border-cyan-400 transition-colors">
-                      <span className="text-2xl font-bold gradient-text">{step.number}</span>
-                    </div>
-                  </div>
+                {/* Icon */}
+                <div className="mb-4 p-3 w-fit rounded-lg bg-purple-50 group-hover:bg-purple-100 transition-colors duration-300">
+                  <IconComponent className="w-6 h-6 text-purple-600" />
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 pt-2 neon-border p-6 rounded-lg bg-slate-950/50 group-hover:bg-slate-900/70 transition-all">
-                  <div className="flex items-start gap-4">
-                    {(() => {
-                      const IconComponent = step.icon;
-                      return <IconComponent size={48} className="text-cyan-400 flex-shrink-0 group-hover:text-magenta-400 transition-colors" />;
-                    })()}
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-cyan-400 mb-2 group-hover:text-magenta-400 transition-colors">
-                        {step.title}
-                      </h3>
-                      <p className="text-gray-400 leading-relaxed">{step.description}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Additional Info */}
-        {/* <div className="mt-16 grid md:grid-cols-3 gap-6">
-          {[
-            { number: '50+', label: 'Projects Completed', icon: Sparkles },
-            { number: '40+', label: 'Happy Clients', icon: Users },
-            { number: '5+', label: 'Years Experience', icon: Trophy },
-          ].map((stat, idx) => {
-            const IconComponent = stat.icon;
-            return (
-              <div key={idx} className="neon-border p-6 rounded-lg bg-slate-950/50 text-center hover:bg-slate-900 transition-all">
-                <IconComponent size={48} className="text-cyan-400 mx-auto mb-3" />
-                <div className="text-3xl font-bold gradient-text mb-2">{stat.number}</div>
-                <p className="text-gray-400">{stat.label}</p>
-              </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">
+                  {step.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {step.description}
+                </p>
+              </motion.div>
             );
           })}
-        </div> */}
+        </motion.div>
       </div>
     </section>
   );
