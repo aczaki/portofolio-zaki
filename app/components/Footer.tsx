@@ -36,7 +36,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand Section */}
           <div>
-            <h3 className="text-2xl font-bold bg-linear-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent mb-3">
+            <h3 className="text-2xl font-bold bg-linear-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent mb-3">
               Achmad Zaki
             </h3>
             <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
@@ -70,7 +70,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-gray-600 hover:text-purple-600 transition-colors duration-300 text-sm"
+                    className="text-gray-600 hover:text-cyan-600 transition-colors duration-300 text-sm"
                   >
                     {link.name}
                   </a>
@@ -83,7 +83,7 @@ export default function Footer() {
           <div className="flex flex-col items-start md:items-end justify-start h-full">
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-gray-600 hover:text-purple-600 hover:border-purple-300 font-medium transition-all duration-300 text-sm"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-gray-600 hover:text-cyan-600 hover:border-cyan-300 font-medium transition-all duration-300 text-sm"
               aria-label="Scroll to top"
             >
               Back to Top

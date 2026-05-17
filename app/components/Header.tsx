@@ -44,7 +44,7 @@ export default function Header() {
           <div className="shrink-0">
             <a 
               href="#hero" 
-              className="text-xl font-bold bg-linear-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+              className="text-xl font-bold bg-linear-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
             >
               Achmad Zaki.
             </a>
@@ -58,8 +58,8 @@ export default function Header() {
                 href={link.href}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                   activeSection === link.href.slice(1)
-                    ? 'text-purple-600 bg-purple-50'
-                    : 'text-gray-600 hover:text-purple-600 hover:bg-purple-50/50'
+                    ? 'text-cyan-600 bg-cyan-50'
+                    : 'text-gray-600 hover:text-cyan-600 hover:bg-cyan-50/50'
                 }`}
               >
                 {link.name}
@@ -71,7 +71,7 @@ export default function Header() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-purple-600 transition-colors p-2"
+              className="text-gray-600 hover:text-cyan-600 transition-colors p-2"
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -88,8 +88,8 @@ export default function Header() {
                 href={link.href}
                 className={`block px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                   activeSection === link.href.slice(1)
-                    ? 'text-purple-600 bg-purple-50'
-                    : 'text-gray-600 hover:text-purple-600 hover:bg-purple-50/50'
+                    ? 'text-cyan-600 bg-cyan-50'
+                    : 'text-gray-600 hover:text-cyan-600 hover:bg-cyan-50/50'
                 }`}
                 onClick={() => setIsOpen(false)}
               >

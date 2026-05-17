@@ -15,7 +15,7 @@ export default function Skills() {
       title: 'Backend',
       icon: Code2,
       skills: ['Node.js', 'PHP', 'Laravel', 'RESTful API', 'Authentication', 'Deployment'],
-      color: 'from-purple-500 to-purple-600',
+      color: 'from-cyan-500 to-cyan-600',
     },
     {
       title: 'Database',
@@ -70,7 +70,7 @@ export default function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="bg-linear-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
             Skills & Expertise
           </span>
         </motion.h2>
@@ -109,7 +109,7 @@ export default function Skills() {
                     <motion.span
                       key={skillIdx}
                       whileHover={{ scale: 1.05 }}
-                      className="px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:border-purple-300 hover:bg-purple-50 transition-all duration-300 cursor-default"
+                      className="px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:border-cyan-300 hover:bg-cyan-50 transition-all duration-300 cursor-default"
                     >
                       {skill}
                     </motion.span>
@@ -122,7 +122,7 @@ export default function Skills() {
 
         {/* Soft Skills Section */}
         <motion.div 
-          className="bg-gradient-to-br from-purple-50 to-purple-100/50 border border-purple-200 rounded-xl p-8"
+          className="bg-gradient-to-br from-cyan-50 to-cyan-100/50 border border-cyan-200 rounded-xl p-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -140,7 +140,7 @@ export default function Skills() {
               <motion.div
                 key={idx}
                 variants={categoryVariants}
-                className="bg-white p-4 rounded-lg border border-purple-100 hover:border-purple-300 hover:shadow-md transition-all duration-300"
+                className="bg-white p-4 rounded-lg border border-cyan-100 hover:border-cyan-300 hover:shadow-md transition-all duration-300"
               >
                 <h4 className="font-semibold text-gray-900 mb-2">{skill.title}</h4>
                 <p className="text-sm text-gray-600">{skill.desc}</p>

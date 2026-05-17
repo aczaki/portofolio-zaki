@@ -60,7 +60,7 @@ export default function Projects() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="bg-linear-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
             Featured Projects
           </span>
         </motion.h2>
@@ -80,7 +80,7 @@ export default function Projects() {
               className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 flex flex-col"
             >
               {/* Project Image/Icon Area */}
-              <div className="h-48 bg-gradient-to-br from-purple-100 to-purple-50 flex items-center justify-center relative overflow-hidden">
+              <div className="h-48 bg-gradient-to-br from-cyan-100 to-cyan-50 flex items-center justify-center relative overflow-hidden">
                 {project.image ? (
                   <img
                     src={project.image}
@@ -98,7 +98,7 @@ export default function Projects() {
 
               {/* Project Content */}
               <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors line-clamp-2">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-cyan-600 transition-colors line-clamp-2">
                   {project.title}
                 </h3>
 
@@ -112,7 +112,7 @@ export default function Projects() {
                     <motion.span
                       key={idx}
                       whileHover={{ scale: 1.05 }}
-                      className="text-xs px-2.5 py-1 bg-purple-50 text-purple-700 rounded-full border border-purple-200 hover:bg-purple-100 transition-colors duration-300 font-medium"
+                      className="text-xs px-2.5 py-1 bg-cyan-50 text-cyan-700 rounded-full border border-cyan-200 hover:bg-cyan-100 transition-colors duration-300 font-medium"
                     >
                       {tag}
                     </motion.span>
@@ -126,7 +126,7 @@ export default function Projects() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 text-center flex items-center justify-center gap-2 text-purple-600 hover:text-purple-700 font-semibold py-2 rounded-lg hover:bg-purple-50 transition-all duration-300"
+                      className="flex-1 text-center flex items-center justify-center gap-2 text-cyan-600 hover:text-cyan-700 font-semibold py-2 rounded-lg hover:bg-cyan-50 transition-all duration-300"
                     >
                       <ExternalLink size={16} />
                       Live
@@ -137,7 +137,7 @@ export default function Projects() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 text-center flex items-center justify-center gap-2 text-gray-600 hover:text-purple-600 font-semibold py-2 rounded-lg hover:bg-purple-50 transition-all duration-300"
+                      className="flex-1 text-center flex items-center justify-center gap-2 text-gray-600 hover:text-cyan-600 font-semibold py-2 rounded-lg hover:bg-cyan-50 transition-all duration-300"
                     >
                       <FaGithub size={16} />
                       Code
@@ -159,7 +159,7 @@ export default function Projects() {
         >
           <a
             href="#"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 gap-2"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 gap-2"
           >
             Lihat Semua Proyek
             <ExternalLink size={18} />

@@ -4,7 +4,7 @@
   /* Lilac Minimalist Theme */
   --background: #ffffff;
   --foreground: #0f172a;
-  --primary: #8b5cf6;
+  --primary: #0891B2;
   --secondary: #c4b5fd;
   --accent: #e5e7eb;
   --card-bg: #f8fafc;
@@ -68,7 +68,7 @@ a {
 }
 
 .neon-border:hover {
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
+  box-shadow: 0 4px 12px rgba(8, 145, 178, 0.1);
   border-color: var(--primary);
 }
 
@@ -83,12 +83,12 @@ a {
 /* Modern button */
 .glow-button {
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.25);
+  box-shadow: 0 4px 16px rgba(8, 145, 178, 0.25);
   transition: all 0.3s ease;
 }
 
 .glow-button:hover {
-  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.35);
+  box-shadow: 0 8px 24px rgba(8, 145, 178, 0.35);
   transform: translateY(-2px);
 }
 

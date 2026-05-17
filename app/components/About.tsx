@@ -37,7 +37,7 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="bg-linear-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
             Tentang Saya
           </span>
         </motion.h2>
@@ -62,8 +62,8 @@ export default function About() {
                   priority
                 />
               ) : (
-                <div className="bg-linear-to-br from-purple-100 to-purple-50 w-full aspect-square flex items-center justify-center">
-                  <User size={128} className="text-purple-300" />
+                <div className="bg-linear-to-br from-cyan-100 to-cyan-50 w-full aspect-square flex items-center justify-center">
+                  <User size={128} className="text-cyan-300" />
                 </div>
               )}
               <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -73,8 +73,8 @@ export default function About() {
           {/* Middle - Content */}
           <motion.div variants={itemVariants} className="space-y-6">
             <p className="text-gray-700 text-lg leading-relaxed">
-              Saya adalah seorang <span className="text-purple-600 font-semibold">Full Stack Developer</span> yang passionate
-              tentang menciptakan solusi web yang inovatif dan user-centric.
+              Saya adalah seorang <span className="text-cyan-600 font-semibold">Full Stack Developer</span> yang passionate
+              dalam menciptakan solusi web yang inovatif dan user-centric.
             </p>
 
             <p className="text-gray-700 text-lg leading-relaxed">
@@ -90,7 +90,7 @@ export default function About() {
                 'Belajar teknologi terbaru dan best practices',
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-purple-600 mt-1 shrink-0 flex-none" />
+                  <CheckCircle2 size={20} className="text-cyan-600 mt-1 shrink-0 flex-none" />
                   <span className="text-gray-700">{item}</span>
                 </li>
               ))}
@@ -99,13 +99,13 @@ export default function About() {
             <div className="flex gap-4 pt-6">
               <a 
                 href="#contact" 
-                className="px-6 py-2 bg-linear-to-r from-purple-600 to-purple-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="px-6 py-2 bg-linear-to-r from-cyan-600 to-cyan-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 Hubungi Saya
               </a>
               <a 
                 href="#projects" 
-                className="px-6 py-2 border-2 border-gray-300 text-gray-900 rounded-lg font-semibold hover:border-purple-300 hover:bg-purple-50/50 transition-all duration-300"
+                className="px-6 py-2 border-2 border-gray-300 text-gray-900 rounded-lg font-semibold hover:border-cyan-300 hover:bg-cyan-50/50 transition-all duration-300"
               >
                 Lihat Proyek
               </a>
@@ -116,14 +116,14 @@ export default function About() {
           <motion.div variants={itemVariants} className="space-y-4">
             <h3 className="text-xl font-bold text-gray-900 mb-4">Pendidikan</h3>
 
-            <div className="bg-white rounded-lg p-4 border border-gray-200 hover:border-purple-300 hover:shadow-lg transition-all duration-300">
+            <div className="bg-white rounded-lg p-4 border border-gray-200 hover:border-cyan-300 hover:shadow-lg transition-all duration-300">
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-start gap-3 flex-1">
-                  <GraduationCap className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
+                  <GraduationCap className="w-5 h-5 text-cyan-600 shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-semibold text-gray-900 text-sm">Sarjana Informatika</h4>
                     <p className="text-xs text-gray-600 mt-1">Universitas Muhammadiyah Surakarta</p>
-                    <p className="text-xs text-purple-600 font-medium mt-2">2022 - 2026 • IPK: 3.54/4.00</p>
+                    <p className="text-xs text-cyan-600 font-medium mt-2">2022 - 2026 • IPK: 3.54/4.00</p>
                   </div>
                 </div>
               </div>
@@ -135,7 +135,7 @@ export default function About() {
                 {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Laravel', 'MySQL', 'MongoDB'].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 bg-purple-50 border border-purple-200 rounded-full text-xs font-medium text-purple-700 hover:bg-purple-100 transition-colors duration-300"
+                    className="px-3 py-1 bg-cyan-50 border border-cyan-200 rounded-full text-xs font-medium text-cyan-700 hover:bg-cyan-100 transition-colors duration-300"
                   >
                     {tech}
                   </span>
