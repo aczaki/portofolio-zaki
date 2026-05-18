@@ -96,12 +96,9 @@ export default function Footer() {
         <div className="border-t border-gray-200 my-8"></div>
 
         {/* Bottom Footer */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-4">
           <p className="text-gray-600 text-sm">
             &copy; {year} Achmad Zaki Ramadani. All rights reserved.
-          </p>
-          <p className="text-gray-500 text-xs">
-            Crafted with love using Next.js, React, and Tailwind CSS
           </p>
         </div>
       </div>

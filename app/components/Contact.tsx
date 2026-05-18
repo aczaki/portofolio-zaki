@@ -126,7 +126,7 @@ export default function Contact() {
 
         {/* Contact Methods */}
         <motion.div 
-          className="grid grid-cols-4 gap-6 mb-12"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6 mb-12"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -142,15 +142,15 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 variants={itemVariants}
                 whileHover={{ translateY: -4 }}
-                className="group bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:border-cyan-300 transition-all duration-300"
+                className="group bg-white border border-gray-200 rounded-lg md:rounded-xl p-4 md:p-6 hover:shadow-lg hover:border-cyan-300 transition-all duration-300 flex flex-col items-center text-center"
               >
-                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br ${contact.color} mb-4`}>
-                  <IconComponent className="w-6 h-6 text-white" />
+                <div className={`inline-flex items-center justify-center w-10 md:w-12 h-10 md:h-12 rounded-lg bg-gradient-to-br ${contact.color} mb-3 md:mb-4`}>
+                  <IconComponent className="w-5 md:w-6 h-5 md:h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-cyan-600 transition-colors">
+                <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1 md:mb-2 group-hover:text-cyan-600 transition-colors">
                   {contact.title}
                 </h3>
-                <p className="text-gray-600 text-sm break-all hover:text-cyan-600 transition-colors">
+                <p className="text-gray-600 text-xs md:text-sm break-all hover:text-cyan-600 transition-colors line-clamp-3">
                   {contact.value}
                 </p>
               </motion.a>
