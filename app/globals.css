@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  /* Lilac Minimalist Theme */
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --primary: #0891B2;
-  --secondary: #c4b5fd;
-  --accent: #e5e7eb;
-  --card-bg: #f8fafc;
-  --border-color: #e5e7eb;
+  /* Tech-Friendly & Professional (Silver & Royal Blue) Theme */
+  --background: #f8fafc; /* Clean off-white background */
+  --foreground: #1E293B; /* Slate-800 for comfortable text reading */
+  --primary: #2563EB; /* Royal Blue (Tech-savvy) */
+  --secondary: #3B82F6; /* Lighter Royal Blue for gradients */
+  --accent: #FF6B6B; /* Coral / Warm playful CTA */
+  --card-bg: rgba(255, 255, 255, 0.7); /* Light Glassmorphism background */
+  --border-color: #A8A8A8; /* Silver modern border & dividers */
 }
 
 @theme inline {
@@ -17,6 +17,7 @@
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
+  --color-border: var(--border-color);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -26,7 +27,7 @@ html {
 }
 
 body {
-  background: #ffffff;
+  background: var(--background);
   color: var(--foreground);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
@@ -49,7 +50,7 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -61,18 +62,22 @@ a {
   background: #94a3b8;
 }
 
-/* Minimal border style */
+/* Glassmorphism card & border style */
 .neon-border {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-color);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
 .neon-border:hover {
-  box-shadow: 0 4px 12px rgba(8, 145, 178, 0.1);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.15); /* Royal Blue shadow */
   border-color: var(--primary);
 }
 
-/* Gradient text - Lilac */
+/* Gradient text - Indigo to Purple */
 .gradient-text {
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   -webkit-background-clip: text;
@@ -80,15 +85,17 @@ a {
   background-clip: text;
 }
 
-/* Modern button */
+/* Modern button - Neon Coral/Peach */
 .glow-button {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  box-shadow: 0 4px 16px rgba(8, 145, 178, 0.25);
+  background: linear-gradient(135deg, #ff8c7a 0%, var(--accent) 100%);
+  box-shadow: 0 4px 16px rgba(255, 111, 97, 0.3);
   transition: all 0.3s ease;
+  color: white !important;
+  border: none;
 }
 
 .glow-button:hover {
-  box-shadow: 0 8px 24px rgba(8, 145, 178, 0.35);
+  box-shadow: 0 8px 24px rgba(255, 111, 97, 0.45);
   transform: translateY(-2px);
 }
 

@@ -15,7 +15,7 @@ export default function Skills() {
       title: 'Backend',
       icon: Code2,
       skills: ['Node.js', 'PHP', 'Laravel', 'RESTful API', 'Authentication', 'Deployment'],
-      color: 'from-cyan-500 to-cyan-600',
+      color: 'from-primary to-secondary',
     },
     {
       title: 'Database',
@@ -70,7 +70,7 @@ export default function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="bg-linear-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent">
             Skills & Expertise
           </span>
         </motion.h2>
@@ -90,7 +90,7 @@ export default function Skills() {
                 key={idx}
                 variants={categoryVariants}
                 whileHover={{ translateY: -4 }}
-                className="group relative bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300"
+                className="group relative bg-white/65 backdrop-blur-md border border-border-color rounded-xl p-6 hover:shadow-lg transition-all duration-300"
               >
                 {/* Gradient background on hover */}
                 <div className={`absolute inset-0 bg-linear-to-br ${category.color} opacity-0 group-hover:opacity-5 rounded-xl transition-opacity duration-300`}></div>
@@ -101,7 +101,7 @@ export default function Skills() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{category.title}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">{category.title}</h3>
 
                 {/* Skills Pills */}
                 <div className="flex flex-wrap gap-2">
@@ -109,7 +109,7 @@ export default function Skills() {
                     <motion.span
                       key={skillIdx}
                       whileHover={{ scale: 1.05 }}
-                      className="px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:border-cyan-300 hover:bg-cyan-50 transition-all duration-300 cursor-default"
+                      className="px-3 py-1.5 bg-background border border-border-color rounded-full text-sm font-medium text-foreground/80 hover:border-secondary hover:bg-primary/5 transition-all duration-300 cursor-default"
                     >
                       {skill}
                     </motion.span>
@@ -122,13 +122,13 @@ export default function Skills() {
 
         {/* Soft Skills Section */}
         <motion.div 
-          className="bg-gradient-to-br from-cyan-50 to-cyan-100/50 border border-cyan-200 rounded-xl p-8"
+          className="bg-gradient-to-br from-primary/5 to-primary/10/50 border border-primary/30 rounded-xl p-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Soft Skills</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-8">Soft Skills</h3>
           <motion.div 
             className="grid md:grid-cols-3 gap-6"
             variants={containerVariants}
@@ -140,10 +140,10 @@ export default function Skills() {
               <motion.div
                 key={idx}
                 variants={categoryVariants}
-                className="bg-white p-4 rounded-lg border border-cyan-100 hover:border-cyan-300 hover:shadow-md transition-all duration-300"
+                className="bg-white/65 backdrop-blur-md p-4 rounded-lg border border-primary/10 hover:border-secondary hover:shadow-md transition-all duration-300"
               >
-                <h4 className="font-semibold text-gray-900 mb-2">{skill.title}</h4>
-                <p className="text-sm text-gray-600">{skill.desc}</p>
+                <h4 className="font-semibold text-foreground mb-2">{skill.title}</h4>
+                <p className="text-sm text-foreground/70">{skill.desc}</p>
               </motion.div>
             ))}
           </motion.div>

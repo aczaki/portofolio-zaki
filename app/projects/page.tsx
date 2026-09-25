@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50/50">
+    <div className="flex flex-col min-h-screen bg-background/50">
       <Header />
       {/* Tambahkan padding top (pt-24) agar konten tidak tertutup Header yang fixed */}
       <main className="flex-1 pt-24">

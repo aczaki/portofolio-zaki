@@ -64,7 +64,7 @@ export default function Workflow() {
   };
 
   return (
-    <section id="workflow" className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50/50">
+    <section id="workflow" className="py-24 px-4 sm:px-6 lg:px-8 bg-background/50">
       <div className="max-w-6xl mx-auto">
         <motion.h2 
           className="text-4xl md:text-5xl font-bold mb-4 text-center"
@@ -73,13 +73,13 @@ export default function Workflow() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="bg-linear-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent">
             Workflow & Process
           </span>
         </motion.h2>
         
         <motion.p 
-          className="text-center text-gray-600 mb-16 max-w-2xl mx-auto text-lg"
+          className="text-center text-foreground/70 mb-16 max-w-2xl mx-auto text-lg"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -102,23 +102,23 @@ export default function Workflow() {
                 key={idx}
                 variants={stepVariants}
                 whileHover={{ translateY: -4 }}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:border-cyan-300 transition-all duration-300 group"
+                className="bg-white/65 backdrop-blur-md border border-border-color rounded-xl p-6 hover:shadow-lg hover:border-secondary transition-all duration-300 group"
               >
                 {/* Step Number Badge */}
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-600 to-cyan-500 text-white font-bold text-lg mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-secondary text-white font-bold text-lg mb-4">
                   {step.number}
                 </div>
 
                 {/* Icon */}
-                <div className="mb-4 p-3 w-fit rounded-lg bg-cyan-50 group-hover:bg-cyan-100 transition-colors duration-300">
-                  <IconComponent className="w-6 h-6 text-cyan-600" />
+                <div className="mb-4 p-3 w-fit rounded-lg bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300">
+                  <IconComponent className="w-6 h-6 text-primary" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-cyan-600 transition-colors">
+                <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                   {step.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-foreground/70 text-sm leading-relaxed">
                   {step.description}
                 </p>
               </motion.div>

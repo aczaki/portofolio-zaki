@@ -56,21 +56,21 @@ export default function Contact() {
       color: 'from-red-500 to-red-600',
     },
     {
-      icon: FaLinkedin as any,
+      icon: FaLinkedin,
       title: 'LinkedIn',
       value: 'Achmad Zaki Ramadani',
       link: 'https://www.linkedin.com/in/achmad-zaki-ramadani-4626a6365/',
       color: 'from-blue-500 to-blue-600',
     },
     {
-      icon: FaGithub as any,
+      icon: FaGithub,
       title: 'GitHub',
       value: 'aczaki',
       link: 'https://github.com/aczaki',
-      color: 'from-gray-700 to-gray-800',
+      color: 'from-foreground/80 to-foreground',
     },
     {
-      icon: FaInstagram as any,
+      icon: FaInstagram,
       title: 'Instagram',
       value: 'aczaki.r',
       link: 'https://www.instagram.com/aczaki.r/',
@@ -108,13 +108,13 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="bg-linear-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent">
             Mari Berkolaborasi
           </span>
         </motion.h2>
         
         <motion.p 
-          className="text-center text-gray-600 mb-12 text-lg"
+          className="text-center text-foreground/70 mb-12 text-lg"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -142,15 +142,15 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 variants={itemVariants}
                 whileHover={{ translateY: -4 }}
-                className="group bg-white border border-gray-200 rounded-lg md:rounded-xl p-4 md:p-6 hover:shadow-lg hover:border-cyan-300 transition-all duration-300 flex flex-col items-center text-center"
+                className="group bg-white/65 backdrop-blur-md border border-border-color rounded-lg md:rounded-xl p-4 md:p-6 hover:shadow-lg hover:border-secondary transition-all duration-300 flex flex-col items-center text-center"
               >
                 <div className={`inline-flex items-center justify-center w-10 md:w-12 h-10 md:h-12 rounded-lg bg-gradient-to-br ${contact.color} mb-3 md:mb-4`}>
                   <IconComponent className="w-5 md:w-6 h-5 md:h-6 text-white" />
                 </div>
-                <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1 md:mb-2 group-hover:text-cyan-600 transition-colors">
+                <h3 className="text-base md:text-lg font-semibold text-foreground mb-1 md:mb-2 group-hover:text-primary transition-colors">
                   {contact.title}
                 </h3>
-                <p className="text-gray-600 text-xs md:text-sm break-all hover:text-cyan-600 transition-colors line-clamp-3">
+                <p className="text-foreground/70 text-xs md:text-sm break-all hover:text-primary transition-colors line-clamp-3">
                   {contact.value}
                 </p>
               </motion.a>
@@ -161,7 +161,7 @@ export default function Contact() {
         {/* Divider */}
         <div className="relative mb-12">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-200"></div>
+            <div className="w-full border-t border-border-color"></div>
           </div>
         </div>
       </div>

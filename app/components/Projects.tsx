@@ -82,7 +82,7 @@ export default function Projects({ showViewAll = true, title = "Featured Project
   };
 
   return (
-    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50/50">
+    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 bg-background/50">
       <div className="max-w-6xl mx-auto">
         <motion.h2 
           className="text-4xl md:text-5xl font-bold mb-16 text-center"
@@ -91,7 +91,7 @@ export default function Projects({ showViewAll = true, title = "Featured Project
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="bg-linear-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent">
             {title}
           </span>
         </motion.h2>
@@ -109,10 +109,10 @@ export default function Projects({ showViewAll = true, title = "Featured Project
               variants={projectVariants}
               whileHover={{ translateY: -8 }}
               onClick={() => setSelectedProject(project)}
-              className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 flex flex-col cursor-pointer"
+              className="group bg-white/65 backdrop-blur-md rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-border-color flex flex-col cursor-pointer"
             >
               {/* Project Image/Icon Area */ }
-              <div className="h-48 bg-gradient-to-br from-cyan-100 to-cyan-50 flex items-center justify-center relative overflow-hidden">
+              <div className="h-48 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center relative overflow-hidden">
                 {project.image ? (
                   <img
                     src={project.image}
@@ -130,11 +130,11 @@ export default function Projects({ showViewAll = true, title = "Featured Project
 
               {/* Project Content */}
               <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-cyan-600 transition-colors line-clamp-2">
+                <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
                   {project.title}
                 </h3>
 
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-1">
+                <p className="text-foreground/70 text-sm mb-4 line-clamp-3 flex-1">
                   {project.description}
                 </p>
 
@@ -144,7 +144,7 @@ export default function Projects({ showViewAll = true, title = "Featured Project
                     <motion.span
                       key={idx}
                       whileHover={{ scale: 1.05 }}
-                      className="text-xs px-2.5 py-1 bg-cyan-50 text-cyan-700 rounded-full border border-cyan-200 hover:bg-cyan-100 transition-colors duration-300 font-medium"
+                      className="text-xs px-2.5 py-1 bg-primary/5 text-primary rounded-full border border-primary/30 hover:bg-primary/10 transition-colors duration-300 font-medium"
                     >
                       {tag}
                     </motion.span>
@@ -152,7 +152,7 @@ export default function Projects({ showViewAll = true, title = "Featured Project
                 </div>
 
                 {/* Links */}
-                <div className="flex gap-3 pt-4 border-t border-gray-200">
+                <div className="flex gap-3 pt-4 border-t border-border-color">
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
@@ -162,7 +162,7 @@ export default function Projects({ showViewAll = true, title = "Featured Project
                         e.stopPropagation();
                         if (project.liveUrl === '#') e.preventDefault();
                       }}
-                      className={`flex-1 text-center flex items-center justify-center gap-2 font-semibold py-2 rounded-lg transition-all duration-300 ${project.liveUrl !== '#' ? 'text-cyan-600 hover:text-cyan-700 hover:bg-cyan-50' : 'text-gray-400 bg-gray-50 cursor-not-allowed'}`}
+                      className={`flex-1 text-center flex items-center justify-center gap-2 font-semibold py-2 rounded-lg transition-all duration-300 ${project.liveUrl !== '#' ? 'text-primary hover:text-primary hover:bg-primary/5' : 'text-foreground/50 bg-background cursor-not-allowed'}`}
                     >
                       <ExternalLink size={16} />
                       Live
@@ -177,7 +177,7 @@ export default function Projects({ showViewAll = true, title = "Featured Project
                         e.stopPropagation();
                         if (project.githubUrl === '#') e.preventDefault();
                       }}
-                      className={`flex-1 text-center flex items-center justify-center gap-2 font-semibold py-2 rounded-lg transition-all duration-300 ${project.githubUrl !== '#' ? 'text-gray-600 hover:text-cyan-600 hover:bg-cyan-50' : 'text-gray-400 bg-gray-50 cursor-not-allowed'}`}
+                      className={`flex-1 text-center flex items-center justify-center gap-2 font-semibold py-2 rounded-lg transition-all duration-300 ${project.githubUrl !== '#' ? 'text-foreground/70 hover:text-primary hover:bg-primary/5' : 'text-foreground/50 bg-background cursor-not-allowed'}`}
                     >
                       <FaGithub size={16} />
                       Code
@@ -200,7 +200,7 @@ export default function Projects({ showViewAll = true, title = "Featured Project
           >
             <Link
               href="/projects"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 gap-2"
+              className="inline-flex items-center px-8 py-4 glow-button rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 gap-2"
             >
               Lihat Semua Proyek
               <ExternalLink size={18} />
@@ -226,7 +226,7 @@ export default function Projects({ showViewAll = true, title = "Featured Project
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+              className="relative w-full max-w-3xl neon-border rounded-2xl-2xl overflow-hidden flex flex-col max-h-[90vh]"
             >
               {/* Close Button */}
               <button
@@ -238,7 +238,7 @@ export default function Projects({ showViewAll = true, title = "Featured Project
 
               <div className="overflow-y-auto flex-1">
                 {/* Header Image */}
-                <div className="h-64 sm:h-80 w-full relative bg-gray-100">
+                <div className="h-64 sm:h-80 w-full relative bg-background">
                   {selectedProject.image ? (
                     <img
                       src={selectedProject.image}
@@ -246,7 +246,7 @@ export default function Projects({ showViewAll = true, title = "Featured Project
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-6xl bg-gradient-to-br from-cyan-100 to-cyan-50">
+                    <div className="w-full h-full flex items-center justify-center text-6xl bg-gradient-to-br from-primary/10 to-primary/5">
                       📸
                     </div>
                   )}
@@ -254,7 +254,7 @@ export default function Projects({ showViewAll = true, title = "Featured Project
 
                 {/* Content */}
                 <div className="p-6 sm:p-8">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
                     {selectedProject.title}
                   </h3>
                   
@@ -262,20 +262,20 @@ export default function Projects({ showViewAll = true, title = "Featured Project
                     {selectedProject.tags.map((tag: string, idx: number) => (
                       <span
                         key={idx}
-                        className="text-sm px-3 py-1 bg-cyan-50 text-cyan-700 rounded-full border border-cyan-200 font-medium"
+                        className="text-sm px-3 py-1 bg-primary/5 text-primary rounded-full border border-primary/30 font-medium"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <div className="prose max-w-none text-gray-600 mb-8">
+                  <div className="prose max-w-none text-foreground/70 mb-8">
                     <p className="text-base sm:text-lg leading-relaxed">
                       {selectedProject.description}
                     </p>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-100">
+                  <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-background">
                     {selectedProject.liveUrl && (
                       <a
                         href={selectedProject.liveUrl}
@@ -284,7 +284,7 @@ export default function Projects({ showViewAll = true, title = "Featured Project
                         onClick={(e) => {
                           if (selectedProject.liveUrl === '#') e.preventDefault();
                         }}
-                        className={`flex-1 flex items-center justify-center gap-2 font-semibold py-3 px-4 rounded-xl transition-all shadow-sm ${selectedProject.liveUrl !== '#' ? 'bg-cyan-600 text-white hover:bg-cyan-700 hover:shadow' : 'bg-gray-200 text-gray-500 cursor-not-allowed'}`}
+                        className={`flex-1 flex items-center justify-center gap-2 font-semibold py-3 px-4 rounded-xl transition-all shadow-sm ${selectedProject.liveUrl !== '#' ? 'bg-primary text-white hover:bg-primary hover:shadow' : 'bg-border text-foreground/60 cursor-not-allowed'}`}
                       >
                         <ExternalLink size={20} />
                         Kunjungi Live Demo
@@ -298,7 +298,7 @@ export default function Projects({ showViewAll = true, title = "Featured Project
                         onClick={(e) => {
                           if (selectedProject.githubUrl === '#') e.preventDefault();
                         }}
-                        className={`flex-1 flex items-center justify-center gap-2 font-semibold py-3 px-4 rounded-xl transition-all shadow-sm ${selectedProject.githubUrl !== '#' ? 'bg-gray-900 text-white hover:bg-gray-800 hover:shadow' : 'bg-gray-200 text-gray-500 cursor-not-allowed'}`}
+                        className={`flex-1 flex items-center justify-center gap-2 font-semibold py-3 px-4 rounded-xl transition-all shadow-sm ${selectedProject.githubUrl !== '#' ? 'bg-foreground text-white hover:bg-foreground hover:shadow' : 'bg-border text-foreground/60 cursor-not-allowed'}`}
                       >
                         <FaGithub size={20} />
                         Lihat Kode (GitHub)
